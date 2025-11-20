@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Indusec Automatismos</title>
+    
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">INDUSEC</a>
+            <nav class="main-nav">
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                <ul class="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="https://wa.me/573178544089" target="_blank" class="btn cta-button">Contáctanos</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero page-hero" style="background-color: var(--primary-color);">
+        <div class="container">
+            <h1 data-aos="fade-up">Nuestras Soluciones Integrales</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Desde la instalación hasta el mantenimiento, garantizamos el funcionamiento óptimo de tus sistemas.</p>
+        </div>
+    </section>
+
+    <section id="servicios" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center" data-aos="fade-down">Servicios que Ofrecemos</h2>
+            <p class="text-center subtitle" data-aos="fade-down" data-aos-delay="100">Soluciones completas de automatización industrial, residencial y seguridad.</p>
+            
+            <div class="services-full-grid">
+                
+                <div class="service-full-card" data-aos="fade-up">
+                    <i class="icon fas fa-tools"></i>
+                    <h3>Instalación y Puesta en Marcha</h3>
+                    <p>Instalamos motores para puertas batientes, corredizas, barreras vehiculares y todo tipo de automatismos con garantía de fábrica y mano de obra calificada.</p>
+                    <a href="https://wa.me/573178544089?text=Quisiera%20cotizar%20una%20instalación" target="_blank" class="btn btn-secondary btn-small">Cotizar Instalación</a>
+                </div>
+
+                <div class="service-full-card" data-aos="fade-up" data-aos-delay="150">
+                    <i class="icon fas fa-wrench"></i>
+                    <h3>Mantenimiento y Reparación</h3>
+                    <p>Planes de mantenimiento preventivo para prolongar la vida útil de tus equipos. Servicio de reparación rápido y efectivo para minimizar el tiempo de inactividad.</p>
+                    <a href="https://wa.me/573178544089?text=Necesito%20servicio%20de%20mantenimiento" target="_blank" class="btn btn-secondary btn-small">Solicitar Mantenimiento</a>
+                </div>
+
+                <div class="service-full-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="icon fas fa-fingerprint"></i>
+                    <h3>Sistemas de Control de Acceso</h3>
+                    <p>Implementación de control de accesos biométrico, por tarjeta de proximidad, teclado y sistemas inteligentes para gestionar el flujo de personas y vehículos.</p>
+                    <a href="https://wa.me/573178544089?text=Información%20sobre%20control%20de%20acceso" target="_blank" class="btn btn-secondary btn-small">Ver Soluciones</a>
+                </div>
+
+                <div class="service-full-card" data-aos="fade-up" data-aos-delay="450">
+                    <i class="icon fas fa-boxes"></i>
+                    <h3>Venta de Equipos y Repuestos</h3>
+                    <p>Distribución de repuestos originales y accesorios (tarjetas electrónicas, mandos, fotocélulas, etc.) de las marcas líderes en el mercado.</p>
+                    <a href="https://wa.me/573178544089?text=Requiero%20repuestos" target="_blank" class="btn btn-secondary btn-small">Consultar Repuestos</a>
+                </div>
+                
+            </div>
+            
+            <div class="text-center mt-60 cta-servicios" data-aos="fade-up">
+                <p>¿Necesitas una solución a medida o un diagnóstico inmediato?</p>
+                <a href="https://wa.me/573178544089?text=Hola,%20me%20interesan%20sus%servicios." target="_blank" class="btn btn-primary">Contactanos ya!</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Indusec Automatismos.</p>
+            <div class="footer-links">
+                <a href="https://wa.me/573178544089" target="_blank">Contáctanos</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, 
+            once: true 
+        });
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-list').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

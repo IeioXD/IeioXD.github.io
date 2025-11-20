@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | Indusec Automatismos</title>
+    
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">INDUSEC</a>
+            <nav class="main-nav">
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                <ul class="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="https://wa.me/573178544089" target="_blank" class="btn cta-button">Contáctanos</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero page-hero" style="background-color: var(--secondary-color);">
+        <div class="container">
+            <h1 data-aos="fade-up">Catálogo de Productos</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Equipos de automatización, control de acceso y seguridad con la mejor tecnología.</p>
+        </div>
+    </section>
+
+    <section id="productos" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center" data-aos="fade-down">Automatismos Destacados</h2>
+            
+            <div class="product-grid">
+                
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="assets/img/placeholder-product.png" alt="Producto 1" class="product-image">
+                    <h3>Producto 1: Motores Batientes</h3>
+                    <p>Ideal para puertas de dos hojas. Resistencia y ciclos de trabajo intensivo.</p>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="assets/img/placeholder-product.png" alt="Producto 2" class="product-image">
+                    <h3>Producto 2: Barreras Vehiculares</h3>
+                    <p>Control de acceso rápido y seguro para parkings y áreas industriales.</p>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="assets/img/placeholder-product.png" alt="Producto 3" class="product-image">
+                    <h3>Producto 3: Control Biométrico</h3>
+                    <p>Sistemas avanzados de huella dactilar para alta seguridad y registro de personal.</p>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="assets/img/placeholder-product.png" alt="Producto 4" class="product-image">
+                    <h3>Producto 4: Receptoras y Mandos</h3>
+                    <p>Kits completos de control remoto y receptores de largo alcance y alta fiabilidad.</p>
+                </div>
+                
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="assets/img/placeholder-product.png" alt="Producto 5" class="product-image">
+                    <h3>Producto 5: Motores Corredizos</h3>
+                    <p>Potentes motores para portones corredizos pesados, residenciales e industriales.</p>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="assets/img/placeholder-product.png" alt="Producto 6" class="product-image">
+                    <h3>Producto 6: Cercas Eléctricas</h3>
+                    <p>Sistemas perimetrales de alta tensión para protección de propiedades.</p>
+                </div>
+                
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="assets/img/placeholder-product.png" alt="Producto 7" class="product-image">
+                    <h3>Producto 7: Semáforos y Balizas</h3>
+                    <p>Indicadores de tráfico y seguridad para entradas y salidas automáticas.</p>
+                </div>
+                
+                <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="assets/img/placeholder-product.png" alt="Producto 8" class="product-image">
+                    <h3>Producto 8: Sistemas RFID</h3>
+                    <p>Lectores de tarjetas y tags para gestión eficiente de flotas y personal.</p>
+                </div>
+                
+            </div>
+            
+            <div class="text-center mt-40">
+                <a href="https://wa.me/573178544089" target="_blank" class="btn btn-primary">Contactanos</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Indusec Automatismos.</p>
+            <div class="footer-links">
+                <a href="https://wa.me/573178544089" target="_blank">Contáctanos</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, 
+            once: true 
+        });
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-list').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
