@@ -1,0 +1,253 @@
+/* ================================================= */
+/* 1. VARIABLES GLOBALES                             */
+/* ================================================= */
+:root {
+    --color-base: #101010; 
+    --color-ciber: #00ff22; /* Verde Puro brillante */
+    --borde-grosor: 2px; 
+    --transition-fast: 0.00001s; /* Encendido instantáneo */
+    --transition-slow: 1s; /* Apagado lento (efecto estela) */
+}
+
+/* ================================================= */
+/* 2. ESTILOS GENERALES Y DEL CUERPO                 */
+/* ================================================= */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Consolas', monospace; 
+    background-color: var(--color-base);
+    color: white;
+}
+
+/* ================================================= */
+/* 3. LA REJILLA INTERACTIVA (GRID CONTAINER)        */
+/* ================================================= */
+.grid-container {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 120%; 
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 80px);
+    grid-template-rows: repeat(auto-fit, 80px);
+    z-index: 1; 
+    
+    /* ¡CLAVE! Permite que el pseudo-elemento ::before se deslice sobre toda la rejilla */
+    overflow: hidden; 
+}
+
+/* --- EFECTO DE BARRA DESLIZANTE EN TODA LA REJILLA (::before) --- */
+
+.grid-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Un alto enorme para que la barra de luz se vea como una línea delgada */
+    width: 100%; 
+    height: 100%; /* Hacemos el fondo 4 veces más alto que el contenedor */
+    
+    /* Degradado lineal que simula la energía fluyendo */
+    background: linear-gradient(
+        to bottom, /* Dirección de arriba a abajo */
+        transparent 0%, 
+        var(--color-ciber) 30%, /* Borde de luz muy delgado (2% de los 400% de altura) */
+        transparent 4%,
+        transparent 100%
+    );
+    
+    /* Iniciar la animación de barrido continuo */
+    animation: full-grid-slide 5s linear infinite; /* 4s es la velocidad total del escaneo */
+    z-index: 0; /* Capa más baja */
+}
+
+/* Define el movimiento vertical del degradado sobre toda la rejilla */
+@keyframes full-grid-slide {
+    0% {
+        transform: translateY(-100%); /* Comienza por encima */
+    }
+    100% {
+        transform: translateY(100%); /* Termina por debajo y reinicia */
+    }
+}
+
+
+/* ================================================= */
+/* 4. EL CUADRO BASE (GRID ITEM)                     */
+/* ================================================= */
+.grid-item {
+    position: relative; 
+    width: 80px; 
+    height: 80px;
+    background-color: transparent; 
+    
+    /* ESTO ES LO QUE PERMITE VER EL DEGRADADO DE FONDO: */
+    /* El z-index del grid-item (1) es menor que el z-index de su propio ::after (2), 
+       pero mayor que el z-index del ::before del container (0). */
+    z-index: 1;
+    transition: box-shadow var(--transition-slow) ease; 
+}
+
+/* ------------------------------------------------- */
+/* 5. FONDO OSCURO DEL CUADRO (::after)               */
+/* ------------------------------------------------- */
+
+/* Crea el fondo oscuro interno de la celda. Esto bloquea el degradado que no es el borde. */
+.grid-item::after {
+    content: '';
+    position: absolute;
+    /* Deja un borde de 1px (o 2px) para que se vea el degradado del .grid-container::before */
+    inset: 1px; /* Nota: Usamos 1px aquí para asegurar que el borde se vea fino */
+    background-color: var(--color-base); 
+    z-index: 2; /* Capa media (el fondo de la celda) */
+
+    /* Transición de apagado lento (Efecto de estela) */
+    transition: background-color var(--transition-slow) ease; 
+}
+
+/* ------------------------------------------------- */
+/* 6. EFECTO DE HOVER: INTERACTIVIDAD DEL MOUSE       */
+/* ------------------------------------------------- */
+
+/* 1. Resplandor al hacer hover */
+.grid-item:hover {
+    box-shadow: 
+        0 0 10px var(--color-ciber),
+        0 0 20px var(--color-ciber);
+    transition-duration: var(--transition-fast);
+}
+
+/* 2. El fondo de la celda se ilumina instantáneamente al hacer hover */
+.grid-item:hover::after {
+    background-color: var(--color-ciber); 
+    transition-duration: var(--transition-fast);
+}
+
+/* ================================================= */
+/* 7. CONTENIDO CENTRAL                              */
+/* ================================================= */
+.content {
+    position: relative;
+    z-index: 10; 
+    text-align: center;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.7); 
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 255, 34, 0.3); 
+}
+
+.content h1 {
+    color: var(--color-ciber);
+    text-shadow: 0 0 5px var(--color-ciber);
+}
+
+/* --- Estilos para las Páginas Secundarias (Main, About, Proyects) --- */
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--color-ciber);
+    box-shadow: 0 0 10px var(--color-ciber);
+}
+
+.nav-links a {
+    color: var(--color-ciber);
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.1em;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease-out;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Estilo para los botones/CTA */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: transparent;
+    color: var(--color-ciber);
+    border: 2px solid var(--color-ciber);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: var(--color-ciber);
+    color: var(--color-base);
+    box-shadow: 0 0 15px var(--color-ciber);
+}
+
+/* Contenedor principal de la página */
+.page-container {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 100px;
+    padding: 40px;
+    background: rgba(16, 16, 16, 0.9); /* Casi opaco */
+    border-radius: 15px;
+    box-shadow: 0 0 50px rgba(0, 255, 34, 0.5); /* Gran aura verde */
+}
+
+/* Estilos de Tarjetas de Producto */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.product-card {
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid rgba(0, 255, 34, 0.3);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 255, 34, 0.4);
+}
+
+.product-card h3 {
+    color: var(--color-ciber);
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
