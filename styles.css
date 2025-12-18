@@ -101,14 +101,24 @@ body {
 .grid-item::after {
     content: '';
     position: absolute;
-    /* Deja un borde de 1px (o 2px) para que se vea el degradado del .grid-container::before */
-    inset: 1px; /* Nota: Usamos 1px aquí para asegurar que el borde se vea fino */
-    background-color: var(--color-base); 
+    /* Deja un borde de 1px para que se vea el degradado del .grid-container::before */
+    inset: 1px; 
+    
+    /* Usamos una variable para el color. Si no está definida, usa var(--color-base) */
+    background-color: var(--after-bg, var(--color-base)); 
+    
     z-index: 2; /* Capa media (el fondo de la celda) */
 
     /* Transición de apagado lento (Efecto de estela) */
     transition: background-color var(--transition-slow) ease; 
 }
+
+/* Mantenemos el hover para computadoras */
+.grid-item:hover::after {
+    background-color: var(--color-ciber);
+    transition-duration: var(--transition-fast);
+}
+
 
 /* ------------------------------------------------- */
 /* 6. EFECTO DE HOVER: INTERACTIVIDAD DEL MOUSE       */
@@ -274,5 +284,6 @@ body {
     .page-container { padding: 20px; width: 95%; }
     h1 { font-size: 1.5em; }
 }
+
 
 
