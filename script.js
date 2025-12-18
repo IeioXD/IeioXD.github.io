@@ -20,6 +20,7 @@ document.addEventListener('touchmove', (e) => {
         // Simulamos el hover añadiendo una clase temporal
         element.style.boxShadow = "0 0 15px var(--color-ciber)";
         element.style.zIndex = "5";
+        element.style.setProperty('--after-bg', 'var(--color-ciber)');
         
         // Accedemos al pseudo-elemento a través de una transición de color manual
         const inner = element; 
@@ -32,3 +33,4 @@ document.addEventListener('touchmove', (e) => {
         }, 1000); // 1 segundo para que coincida con tu --transition-slow
     }
 }, { passive: true });
+
