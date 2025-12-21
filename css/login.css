@@ -1,0 +1,138 @@
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e7e7e7; /* Fondo gris claro industrial */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.form {
+    background: #fff;
+    padding: 30px;
+    border: 3px solid #000;
+    box-shadow: 8px 8px 0px #000; /* Sombra sólida brutalista */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 320px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.title span {
+    font-size: 14px;
+    color: #666;
+}
+
+.input {
+    padding: 12px;
+    border: 3px solid #000;
+    font-weight: bold;
+    outline: none;
+    transition: 0.2s;
+}
+
+.input:focus {
+    background: #00ff22; /* Se pone verde al escribir */
+    box-shadow: 4px 4px 0px #000;
+}
+
+.login-with {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.button-log {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #000;
+}
+
+.button-log:active {
+    box-shadow: 0 0 0;
+    transform: translate(2px, 2px);
+}
+
+.button-confirm {
+    margin-top: 10px;
+    padding: 12px;
+    background: #000;
+    color: #fff;
+    font-weight: 900;
+    border: 3px solid #000;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0px #00ff22;
+}
+
+.button-confirm:active {
+    box-shadow: 0 0 0;
+    transform: translate(4px, 4px);
+}
+
+.error-text {
+    display: none;
+    color: #ff0000;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); border-color: red; }
+    75% { transform: translateX(8px); }
+}
+
+/* ... (Todo tu código anterior se mantiene igual) ... */
+
+/* --- AJUSTES RESPONSIVOS --- */
+
+@media (max-width: 480px) {
+    .form {
+        /* Permitimos que el ancho sea flexible en móviles pequeños */
+        width: 90%; 
+        max-width: 320px;
+        padding: 20px;
+        /* Reducimos un poco la sombra para que no se salga de la pantalla */
+        box-shadow: 5px 5px 0px #000;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .input {
+        width: 100%; /* Asegura que los inputs no se desborden */
+        box-sizing: border-box; /* Incluye el padding en el ancho total */
+    }
+
+    .button-confirm {
+        width: 100%;
+        box-shadow: 4px 4px 0px #00ff22;
+    }
+}
+
+/* Ajuste para evitar que el scroll horizontal aparezca por las sombras */
+.login-container {
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}

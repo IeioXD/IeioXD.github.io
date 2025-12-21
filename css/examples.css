@@ -1,0 +1,164 @@
+/* El contenedor principal de las muestras */
+.samples-grid {
+    display: flex;
+    flex-direction: column; /* Una debajo de otra */
+    align-items: center;    /* Centradas horizontalmente */
+    gap: 60px;              /* Espacio generoso entre tarjetas */
+    padding: 80px 20px;     /* Espacio arriba y abajo */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ajuste de la tarjeta para que sea responsive */
+.card1 {
+    position: relative;
+    width: 100%;
+    max-width: 550px;       /* Ancho máximo para que no se vea rara */
+    height: 200px;
+    perspective: 1000px;
+    margin: 0 auto;         /* Centrado forzado */
+}
+
+/* El enlace que envuelve la tarjeta */
+.card-link1 {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    max-width: 550px;
+}
+
+/* Forzar que el contenido ocupe todo el espacio */
+.content1 {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card1:hover .content1 {
+  transform: rotateY(180deg);
+}
+
+.front1, .back1 {
+  background-color: #151515;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* --- LÓGICA DEL BORDE DE 2px (Frente) --- */
+.front1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.back-content1 {
+  position: absolute;
+  top: 1px;    /* Aquí defines el grosor del borde */
+  left: 2px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  background-color: #151515;
+  border-radius: 8px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.site-preview1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+/* --- PARTE TRASERA --- */
+/* --- PARTE TRASERA AJUSTADA --- */
+.back1 {
+  transform: rotateY(180deg);
+  border: 2px solid #8a2be2; 
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  background-color: #151515;
+}
+
+.front-content1 {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column; /* Cambiamos a columna para apilar texto y botón */
+  justify-content: center;
+  align-items: center;    /* Centra todo en el eje vertical y horizontal */
+  text-align: center;     /* Centra las líneas de texto */
+  color: white;
+  gap: 15px;              /* Espacio uniforme entre elementos */
+}
+
+/* Ajuste opcional para que la descripción no sea demasiado ancha */
+.description1 {
+  font-size: 18px;
+  color: #bbb;
+  max-width: 90%;         /* Un poco más de aire a los lados */
+  margin-bottom: 10px;
+}
+
+.badge1 {
+  background: #ffffff00;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 19px;
+  text-transform: uppercase;
+}
+
+.title1 {
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+@keyframes rotation_481 {
+  0% { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(360deg); }
+}
+
+
+
+
+/* Media Query para Tablets y Móviles */
+@media (max-width: 768px) {
+    .samples-grid {
+        gap: 40px; /* Reducimos espacio entre tarjetas en móvil */
+        padding: 40px 15px;
+    }
+
+    .card1 {
+        height: 250px; /* Aumentamos altura para que quepa el texto en pantallas angostas */
+        max-width: 100%; /* Ocupa el ancho disponible */
+    }
+
+    .description1 {
+        font-size: 16px; /* Ajuste ligero de lectura */
+        max-width: 95%;
+    }
+
+    .badge1 {
+        font-size: 16px;
+    }
+}
+
+/* Media Query para Móviles muy pequeños */
+@media (max-width: 480px) {
+    .card1 {
+        height: 280px; /* Más espacio vertical para evitar desbordamiento de texto */
+    }
+    
+    .front-content1 {
+        gap: 10px; /* Compactamos un poco el espacio interno */
+    }
+}

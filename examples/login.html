@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Nikolas Gallo</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body class="login-body">
+   <div class="login-container">
+    <form class="form" id="loginForm">
+        <div class="title">BIENVENIDO,<br><span>inicia sesion para continuar</span></div>
+        
+        <input type="email" placeholder="Correo (hola@gmail.com)" id="userEmail" class="input" required>
+        <input type="password" placeholder="Contraseña (1234)" id="userPass" class="input" required>
+        
+        <div id="errorMsg" class="error-text">Error, esta incorrecta</div>
+
+        <div class="login-with">
+            <div class="button-log"></div>
+            <div class="button-log">G</div>
+            <div class="button-log">F</div>
+        </div>
+
+        <button type="submit" class="button-confirm" id="btnSubmit">Vamos →</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('userEmail').value;
+        const pass = document.getElementById('userPass').value;
+        const error = document.getElementById('errorMsg');
+        const btn = document.getElementById('btnSubmit');
+
+        if (email === "hola@gmail.com" && pass === "1234") {
+            btn.innerHTML = "Entrando...";
+            btn.style.backgroundColor = "#00ff22"; // Verde neón
+            setTimeout(() => {
+                window.location.href = "../index.html";
+            }, 1000);
+        } else {
+            error.style.display = "block";
+            // Efecto de sacudida brutalista
+            this.classList.add('shake');
+            setTimeout(() => this.classList.remove('shake'), 400);
+        }
+    });
+</script>
+</body>
+</html>
